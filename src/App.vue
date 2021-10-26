@@ -1,6 +1,6 @@
 <template>
   <h1>Setup basique VUE 3</h1>
-  <ComponentTest msg="Message" />
+  <ComponentTest msg="message" />
   <InputTest />
 </template>
 

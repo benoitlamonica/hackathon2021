@@ -6,7 +6,7 @@
 
 <script>
 import { ref } from "@vue/reactivity";
-import capitaliseFirstLetter from "../filters/capitalise-first-letter";
+import useFilters from "../filters/useFilters";
 
 export default {
   props: {
@@ -15,8 +15,6 @@ export default {
     },
   },
 
-  mixins: [capitaliseFirstLetter],
-
   setup() {
     const i = ref(0);
 
@@ -24,9 +22,11 @@ export default {
       i.value++;
     };
 
+    const { capitaliseFirstLetter } = useFilters();
     return {
       i,
       increment,
+      capitaliseFirstLetter,
     };
   },
 };
