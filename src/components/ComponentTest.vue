@@ -23,6 +23,7 @@ export default {
     };
 
     const { capitaliseFirstLetter } = useFilters();
+
     return {
       i,
       increment,
