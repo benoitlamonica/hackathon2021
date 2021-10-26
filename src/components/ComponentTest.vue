@@ -5,32 +5,33 @@
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
-import useFilters from "../filters/useFilters";
+import { ref } from '@vue/reactivity'
+import useFilters from '../filters/useFilters'
 
 export default {
   props: {
     msg: {
       type: String,
-    },
+      default: 'Coucou'
+    }
   },
 
   setup() {
-    const i = ref(0);
+    const i = ref(0)
 
     const increment = () => {
-      i.value++;
-    };
+      i.value++
+    }
 
-    const { capitaliseFirstLetter } = useFilters();
+    const { capitaliseFirstLetter } = useFilters()
 
     return {
       i,
       increment,
-      capitaliseFirstLetter,
-    };
-  },
-};
+      capitaliseFirstLetter
+    }
+  }
+}
 </script>
 
 <style></style>
