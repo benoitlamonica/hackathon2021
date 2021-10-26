@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import ComponentTest from "./components/ComponentTest.vue";
-import InputTest from "./components/InputTest.vue";
+import ComponentTest from './components/ComponentTest.vue'
+import InputTest from './components/InputTest.vue'
 export default {
   components: {
     ComponentTest,
-    InputTest,
-  },
-};
+    InputTest
+  }
+}
 </script>
 
 <style lang="scss">
