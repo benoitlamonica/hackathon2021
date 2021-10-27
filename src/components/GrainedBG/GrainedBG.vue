@@ -31,6 +31,6 @@ export default {
 div {
   height: 100vh;
   width: 100%;
-  background-color: #cfc170;
+  background-color: $white;
 }
 </style>

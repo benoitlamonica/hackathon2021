@@ -1,24 +1,19 @@
 <template>
   <GrainedBG>
-    <h1>Setup basique VUE 3</h1>
-    <InputTest />
+    <Hero />
   </GrainedBG>
 </template>
 
 <script>
 import GrainedBG from './components/GrainedBG'
-import InputTest from './components/InputTest.vue'
+import Hero from './components/Hero'
 
 export default {
   components: {
     GrainedBG,
-    InputTest
+    Hero
   }
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-}
-</style>
+<style lang="scss"></style>
