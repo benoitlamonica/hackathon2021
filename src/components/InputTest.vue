@@ -12,6 +12,7 @@
 <script>
 import { computed, ref } from '@vue/reactivity'
 import { useStore } from 'vuex'
+
 export default {
   setup() {
     const inputModel = ref('Placeholder')
