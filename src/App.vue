@@ -1,17 +1,15 @@
 <template>
-  <h1>Setup basique VUE 3</h1>
-  <ComponentTest msg="message" />
-  <InputTest />
+  <GrainedBG>
+    <h1>Setup basique VUE 3</h1>
+  </GrainedBG>
 </template>
 
 <script>
-import ComponentTest from './components/ComponentTest.vue'
-import InputTest from './components/InputTest.vue'
+import GrainedBG from './components/GrainedBG'
 
 export default {
   components: {
-    ComponentTest,
-    InputTest
+    GrainedBG
   }
 }
 </script>
@@ -19,10 +17,5 @@ export default {
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: $color;
-  margin-top: 60px;
 }
 </style>
