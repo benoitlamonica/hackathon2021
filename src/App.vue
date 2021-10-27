@@ -7,6 +7,7 @@
 <script>
 import ComponentTest from './components/ComponentTest.vue'
 import InputTest from './components/InputTest.vue'
+
 export default {
   components: {
     ComponentTest,
