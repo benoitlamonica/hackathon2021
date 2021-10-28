@@ -1,21 +1,80 @@
+body {
+  font-family: $main-font;
+  background-color: $yellow;
+  color: $black;
+}
+
 h1 {
   font-size: $h1-fs;
+  letter-spacing: $h1-ls;
 }
 
 h2 {
   font-size: $h2-fs;
+  letter-spacing: $h2-ls;
 }
 
 h3 {
   font-size: $h3-fs;
+  letter-spacing: $h3-ls;
 }
 
 h4 {
   font-size: $h4-fs;
+  letter-spacing: $h4-ls;
+}
+h5 {
+  font-size: $h5-fs;
+  letter-spacing: $h5-ls;
+}
+h6 {
+  font-size: $h6-fs;
+  letter-spacing: $h6-ls;
+}
+
+h7 {
+  font-size: $h7-fs;
+  letter-spacing: $h7-ls;
+}
+
+h8 {
+  font-size: $h8-fs;
+  letter-spacing: $h8-ls;
+}
+
+h9 {
+  font-size: $h9-fs;
+  letter-spacing: $h9-ls;
+}
+
+h10 {
+  font-size: $h10-fs;
+  letter-spacing: $h10-ls;
 }
 
 p {
   font-size: $p-fs;
+  letter-spacing: $p-ls;
+}
+
+.span1 {
+  font-size: $span-1-fs;
+  letter-spacing: $span-1-ls;
+}
+
+.span2 {
+  font-size: $span-2-fs;
+  letter-spacing: $span-2-ls;
+}
+
+.span3 {
+  font-size: $span-3-fs;
+  letter-spacing: $span-3-ls;
+}
+
+.span4 {
+  font-size: $span-4-fs;
+  letter-spacing: $span-4-ls;
 }
 
 #grained::before {
