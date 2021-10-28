@@ -6,7 +6,6 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:vue/vue3-recommended",
-        "prettierc"
     ],
     "parserOptions": {
         "sourceType": "module"

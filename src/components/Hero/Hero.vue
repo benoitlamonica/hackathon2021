@@ -1,21 +1,35 @@
 <template>
-  <div class="hero">
-    <div class="flex-inline gap-50">
-      <div class="flex-basis-33">
-        Ceci est une ligne de texte avec deux typos différentes lorem ipsum
+  <div class="hero align-items-center">
+    <div class="hero-top flex-inline gap-50">
+      <div class="hero-acc flex-basis-33">
+        <div>Ceci est une ligne de</div>
+        <div>texte avec deux typos</div>
+        <div>différentes lorem ipsum</div>
       </div>
-      <img src="./src/assets/images/logo.svg" alt="Logo" />
+      <div class="flex-basis-33">
+        <img class="logo" src="@/assets/images/logo.svg" alt="Logo" />
+      </div>
       <div class="flex-basis-33">Mona</div>
     </div>
     <div class="hero-title">
       <div><h7>Premier titre</h7></div>
       <h1>Culture</h1>
     </div>
+    <div class="hero-navigation">
+      <Button content="Télécharger" />
+      <div class="hero-style-content">
+        <HeroStyle />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+import HeroStyle from './component/HeroStyle'
+import Button from '../Button'
+export default {
+  components: { HeroStyle, Button }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -24,6 +38,22 @@ export default {}
   width: 100vw;
   h1 {
     color: $brown;
+  }
+  .hero-top {
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    > .hero-acc {
+      flex-direction: column;
+      line-height: 25px;
+    }
+    height: 25%;
+    .logo {
+      display: block;
+      margin: auto;
+    }
   }
   .hero-title {
     width: fit-content;
@@ -34,6 +64,11 @@ export default {}
         text-transform: uppercase;
       }
     }
+  }
+
+  .hero-navigation {
+    display: flex;
+    justify-content: center;
   }
 }
 </style>
