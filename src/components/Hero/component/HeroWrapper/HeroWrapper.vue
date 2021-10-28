@@ -6,6 +6,6 @@
 
 <style lang="scss">
 .hero-wrapper {
-  padding: 0 350px;
+  padding: 0 15vw;
 }
 </style>

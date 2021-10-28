@@ -9,7 +9,9 @@
       <div class="flex-basis-33">
         <img class="logo" src="@/assets/images/logo.svg" alt="Logo" />
       </div>
-      <div class="flex-basis-33">Mona</div>
+      <div class="flex-basis-33">
+        Mona
+      </div>
     </div>
     <HeroWrapper>
       <div class="hero-title">
