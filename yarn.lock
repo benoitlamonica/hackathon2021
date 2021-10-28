@@ -2410,6 +2410,11 @@ vue-eslint-parser@^7.10.0:
     lodash "^4.17.21"
     semver "^6.3.0"
 
+vue-intersect@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vue-intersect/-/vue-intersect-3.0.0.tgz#62df17c7ebfc175333321db97a9cb5d0f56ec91c"
+  integrity sha512-0vd0xbsX7pwJDqob2O3Vk41nmO/u6eNZY1abG4CS9pULpc3Xk1hNj1/Fovv9gT1fUIARO7Wf3+8/45z7YMSiLQ==
+
 vue@^3.2.16:
   version "3.2.20"
   resolved "https://registry.npmjs.org/vue/-/vue-3.2.20.tgz"

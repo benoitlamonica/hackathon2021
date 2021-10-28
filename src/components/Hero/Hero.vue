@@ -2,9 +2,9 @@
   <div class="hero">
     <div class="hero-top flex-inline gap-50">
       <div class="hero-acc flex-basis-33">
-        <div>Ceci est une ligne de</div>
-        <div>texte avec deux typos</div>
-        <div>différentes lorem ipsum</div>
+        <span class="hero-dbtypo">Ceci est une ligne de</span>
+        <span>texte avec deux typos</span>
+        <span class="hero-dbtypo">différentes lorem ipsum</span>
       </div>
       <div class="flex-basis-33">
         <img class="logo" src="@/assets/images/logo.svg" alt="Logo" />
@@ -44,14 +44,19 @@ export default {
   h1 {
     color: $brown;
   }
+  .hero-dbtypo {
+    font-family: $ak-font;
+  }
   .hero-top {
     > div {
       display: flex;
       align-items: center;
-      justify-content: center;
     }
     > .hero-acc {
       flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: left;
       line-height: 25px;
     }
     height: 25%;
