@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div class="slider-content flex-inline gap-30">
+    <div ref="slider" class="slider-content flex-inline gap-30">
       <div
         v-for="(museum, index) in data"
         :key="index"
         class="slider flex-basis-50"
         @mousemove="(e) => handleMouseMove(e, index)"
+        @mouseleave="mousePosition.id = null"
       >
         <img :src="museum.src" :alt="museum.punchline" />
         <div class="slider-data-display">
@@ -14,9 +15,12 @@
           </p>
           <h2>{{ museum.title }}</h2>
           <div
-            ref="sliderName"
             class="slider-name"
-            :style="`position:fixed; top:${mousePosition.y}; left:${mousePosition.x}`"
+            :style="
+              mousePosition.id === index
+                ? `display: block; position:fixed; top: ${mousePosition.y}px; left: ${mousePosition.x}px`
+                : ''
+            "
           >
             <p class="name">
               {{ museum.name }}
@@ -25,11 +29,7 @@
         </div>
       </div>
     </div>
-    <Intersect
-      root-margin="0px 0px 900px 0px"
-      @enter="handleEnterEvent"
-      @leave="handleLeaveEvent"
-    >
+    <Intersect @enter="handleEnterEvent" @leave="handleLeaveEvent">
       <span class="breakpoint"></span>
     </Intersect>
   </div>
@@ -38,7 +38,7 @@
 <script>
 import data from './data'
 import Intersect from 'vue-intersect'
-import { reactive } from '@vue/reactivity'
+import { reactive, ref } from '@vue/reactivity'
 
 export default {
   components: {
@@ -50,24 +50,48 @@ export default {
       y: 0,
       id: 0
     })
+
+    const slider = ref()
+
+    const windowBlock = ref(null)
+
     const handleEnterEvent = () => {
-      window.addEventListener('scroll', () => {})
+      console.log(windowBlock.value)
+      slider.value.scrollLeft = 1
+      window.addEventListener('wheel', handleScroll, { passive: false })
     }
+
+    const handleScroll = (e) => {
+      let ssl = slider.value.scrollLeft
+
+      // if (!e.deltaY) {
+      //   return
+      // }
+      if (ssl >= 2474 || ssl === 0) {
+        return
+      }
+      slider.value.scrollLeft += e.deltaY + e.deltaX
+      console.log(ssl)
+      e.preventDefault()
+    }
+
     const handleLeaveEvent = () => {
-      console.log('Leave')
+      window.removeEventListener('scroll', handleScroll)
     }
+
     const handleMouseMove = (e, index) => {
       mousePosition.x = e.clientX
       mousePosition.y = e.clientY
       mousePosition.id = index
-      console.log(mousePosition.x)
     }
+
     return {
       data,
       handleEnterEvent,
       handleLeaveEvent,
       handleMouseMove,
-      mousePosition
+      mousePosition,
+      slider
     }
   }
 }
@@ -75,6 +99,8 @@ export default {
 
 <style lang="scss" scoped>
 .slider-content {
+  margin-bottom: 217px;
+  cursor: none;
   align-items: center;
   overflow-x: auto;
   .slider {
@@ -111,9 +137,12 @@ export default {
         text-transform: uppercase;
       }
       .slider-name {
+        display: none;
+        top: 80%;
         border: 1px solid $white;
         padding: 34px 15px;
         border-radius: 100%;
+        white-space: nowrap;
       }
     }
   }
