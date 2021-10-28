@@ -4,6 +4,7 @@
     <FirstTextContent />
     <FourthSection />
     <FiveSection />
+    <FooterCGU />
   </GrainedBG>
 </template>
 
@@ -13,6 +14,7 @@ import Hero from './components/Hero'
 import FirstTextContent from './components/FirstTextContent/FirstTextContent.vue'
 import FourthSection from './components/FourthSection/FourthSection.vue'
 import FiveSection from './components/FiveSection/FiveSection.vue'
+import FooterCGU from './components/FooterCGU/FooterCGU.vue'
 
 export default {
   components: {
@@ -20,7 +22,8 @@ export default {
     Hero,
     FirstTextContent,
     FourthSection,
-    FiveSection
+    FiveSection,
+    FooterCGU
   }
 }
 </script>
