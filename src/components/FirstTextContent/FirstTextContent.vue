@@ -3,7 +3,7 @@
     <span class="text-part .align-items-center"> Lorem ipsum </span>
 
     <div ref="roundImg1" class="container-round-img">
-      <RoundImg img-link="./src/assets/images/roundImgs/1.png" />
+      <RoundImg :img-link="img1" />
     </div>
     <Intersect @enter="upImg(0)">
       <span class="text-part .align-items-center">
@@ -12,7 +12,7 @@
       </span>
     </Intersect>
     <div ref="roundImg2" class="container-round-img">
-      <RoundImg img-link="./src/assets/images/roundImgs/2.png" />
+      <RoundImg :img-link="img2" />
     </div>
     <Intersect @enter="upImg(1)">
       <span class="text-part .align-items-center">
@@ -21,7 +21,7 @@
       </span>
     </Intersect>
     <div ref="roundImg3" class="container-round-img">
-      <RoundImg img-link="./src/assets/images/roundImgs/3.png" />
+      <RoundImg :img-link="img3" />
     </div>
     <Intersect @enter="upImg(2)">
       <span class="text-part .align-items-center">
@@ -35,6 +35,9 @@
 <script>
 import { ref } from '@vue/reactivity'
 import Intersect from 'vue-intersect'
+import img1 from '@/assets/images/roundImgs/1.png'
+import img2 from '@/assets/images/roundImgs/2.png'
+import img3 from '@/assets/images/roundImgs/3.png'
 
 import RoundImg from '../RoundImg/RoundImg.vue'
 
@@ -57,7 +60,10 @@ export default {
       roundImg2,
       roundImg3,
       RoundImg,
-      upImg
+      upImg,
+      img1,
+      img2,
+      img3
     }
   }
 }
