@@ -1,35 +1,36 @@
 <template>
-  <div id="container-first-text">
-    <span class="text-part .align-items-center"> Lorem ipsum </span>
-
-    <div ref="roundImg1" class="container-round-img">
-      <RoundImg :img-link="img1" />
+  <Wrapper>
+    <div id="container-first-text">
+      <span class="text-part .align-items-center"> Lorem ipsum </span>
+      <div ref="roundImg1" class="container-round-img">
+        <RoundImg :img-link="img1" />
+      </div>
+      <Intersect @enter="upImg(0)">
+        <span class="text-part .align-items-center">
+          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        </span>
+      </Intersect>
+      <div ref="roundImg2" class="container-round-img">
+        <RoundImg :img-link="img2" />
+      </div>
+      <Intersect @enter="upImg(1)">
+        <span class="text-part .align-items-center">
+          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        </span>
+      </Intersect>
+      <div ref="roundImg3" class="container-round-img">
+        <RoundImg :img-link="img3" />
+      </div>
+      <Intersect @enter="upImg(2)">
+        <span class="text-part .align-items-center">
+          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        </span>
+      </Intersect>
     </div>
-    <Intersect @enter="upImg(0)">
-      <span class="text-part .align-items-center">
-        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      </span>
-    </Intersect>
-    <div ref="roundImg2" class="container-round-img">
-      <RoundImg :img-link="img2" />
-    </div>
-    <Intersect @enter="upImg(1)">
-      <span class="text-part .align-items-center">
-        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      </span>
-    </Intersect>
-    <div ref="roundImg3" class="container-round-img">
-      <RoundImg :img-link="img3" />
-    </div>
-    <Intersect @enter="upImg(2)">
-      <span class="text-part .align-items-center">
-        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      </span>
-    </Intersect>
-  </div>
+  </Wrapper>
 </template>
 
 <script>
@@ -40,9 +41,10 @@ import img2 from '@/assets/images/roundImgs/2.png'
 import img3 from '@/assets/images/roundImgs/3.png'
 
 import RoundImg from '../RoundImg/RoundImg.vue'
+import Wrapper from '../Wrapper'
 
 export default {
-  components: { RoundImg, Intersect },
+  components: { RoundImg, Intersect, Wrapper },
 
   setup() {
     const roundImg1 = ref()
@@ -72,7 +74,6 @@ export default {
 <style lang="scss">
 #container-first-text {
   margin: 217px 0;
-  padding: 0 15vw;
 
   .text-part {
     font-family: $main-font;
