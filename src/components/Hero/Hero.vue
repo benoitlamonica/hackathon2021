@@ -4,8 +4,12 @@
       <div class="flex-basis-33">
         Ceci est une ligne de texte avec deux typos différentes lorem ipsum
       </div>
-      <div class="flex-basis-33">mona</div>
-      <div class="flex-basis-33">Mona</div>
+      <div class="flex-basis-33">
+        mona
+      </div>
+      <div class="flex-basis-33">
+        Mona
+      </div>
     </div>
     <div class="hero-title">
       <div>Premier titre</div>
