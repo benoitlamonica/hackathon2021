@@ -1,45 +1,63 @@
 <template>
-  <div id="container-first-text" class="align-items-center">
-    <span class="text-part" @mouseover="mouseOver"> Lorem ipsum </span>
-    <RoundImg imgLink=./src/assets/images/roundImgs/1.png />
-    <span class="text-part">
-      dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    </span>
-    <RoundImg imgLink=./src/assets/images/roundImgs/2.png />
-    <span class="text-part" @mouseover="mouseOver">
-      dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    </span>
-    <RoundImg imgLink=./src/assets/images/roundImgs/3.png />
-    <span class="text-part" @mouseover="mouseOver">
-      dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    </span>
+  <div id="container-first-text">
+    <span class="text-part .align-items-center"> Lorem ipsum </span>
+
+    <div ref="roundImg1" class="container-round-img">
+      <RoundImg img-link="./src/assets/images/roundImgs/1.png" />
+    </div>
+    <Intersect @enter="upImg(0)">
+      <span class="text-part .align-items-center">
+        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      </span>
+    </Intersect>
+    <div ref="roundImg2" class="container-round-img">
+      <RoundImg img-link="./src/assets/images/roundImgs/2.png" />
+    </div>
+    <Intersect @enter="upImg(1)">
+      <span class="text-part .align-items-center">
+        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      </span>
+    </Intersect>
+    <div ref="roundImg3" class="container-round-img">
+      <RoundImg img-link="./src/assets/images/roundImgs/3.png" />
+    </div>
+    <Intersect @enter="upImg(2)">
+      <span class="text-part .align-items-center">
+        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      </span>
+    </Intersect>
   </div>
 </template>
 
 <script>
-/* import { ref } from '@vue/reactivity' */
+import { ref } from '@vue/reactivity'
+import Intersect from 'vue-intersect'
+
 import RoundImg from '../RoundImg/RoundImg.vue'
 
 export default {
-  components: { RoundImg },
+  components: { RoundImg, Intersect },
 
   setup() {
-    /* const round1 = ref()
-    const round2 = ref()
-    const round3 = ref()
-    const rounds = [round1, round2, round3] */
+    const roundImg1 = ref()
+    const roundImg2 = ref()
+    const roundImg3 = ref()
+    const roundImg = [roundImg1, roundImg2, roundImg3]
 
-    const mouseOver = () => {
-      /* rounds.value.style.display = 'block' */
-      console.log('hover')
+    const upImg = (nb) => {
+      roundImg[nb].value.style.display = 'inline-block'
     }
 
     return {
+      roundImg,
+      roundImg1,
+      roundImg2,
+      roundImg3,
       RoundImg,
-      mouseOver
+      upImg
     }
   }
 }
@@ -47,9 +65,32 @@ export default {
 
 <style lang="scss">
 #container-first-text {
+  margin: 217px 0;
+  padding: 0 15vw;
+
   .text-part {
-    font-family: 'Romana BT';
-    font-size: $h2-fs;
+    font-family: $main-font;
+    font-size: $h6-fs;
+    line-height: 72px;
+    text-align: center;
+  }
+
+  .container-round-img {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    display: none;
+    clip-path: circle(0% at 50% 50%);
+    animation: scaleUp 300ms ease-in-out forwards 300ms;
+
+    @keyframes scaleUp {
+      from {
+        clip-path: circle(0% at 50% 50%);
+      }
+      to {
+        clip-path: circle(50% at 50% 50%);
+      }
+    }
   }
 }
 </style>

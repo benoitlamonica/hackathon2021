@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input id="userValue" type="text" v-model="userValue" />
+    <input id="userValue" v-model="userValue" type="text" />
     <div id="button" ref="button">
       {{ userValue }}
     </div>
