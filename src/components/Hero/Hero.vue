@@ -9,11 +9,9 @@
       <div class="flex-basis-33">
         <img class="logo" src="@/assets/images/logo.svg" alt="Logo" />
       </div>
-      <div class="flex-basis-33">
-        Mona
-      </div>
+      <div class="flex-basis-33">Mona</div>
     </div>
-    <HeroWrapper>
+    <Wrapper>
       <div class="hero-title">
         <div><h7>Premier titre</h7></div>
         <h1>Culture</h1>
@@ -26,16 +24,16 @@
           <HeroStyle orientation="left" class="flex-basis-25" />
         </div>
       </div>
-    </HeroWrapper>
+    </Wrapper>
   </div>
 </template>
 
 <script>
 import HeroStyle from './component/HeroStyle'
 import Button from '../Button'
-import HeroWrapper from './component/HeroWrapper'
+import Wrapper from '../Wrapper'
 export default {
-  components: { HeroStyle, Button, HeroWrapper }
+  components: { HeroStyle, Button, Wrapper }
 }
 </script>
 
