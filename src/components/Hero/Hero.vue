@@ -1,5 +1,5 @@
 <template>
-  <div class="hero align-items-center">
+  <div class="hero">
     <div class="hero-top flex-inline gap-50">
       <div class="hero-acc flex-basis-33">
         <div>Ceci est une ligne de</div>
@@ -11,24 +11,29 @@
       </div>
       <div class="flex-basis-33">Mona</div>
     </div>
-    <div class="hero-title">
-      <div><h7>Premier titre</h7></div>
-      <h1>Culture</h1>
-    </div>
-    <div class="hero-navigation">
-      <Button content="Télécharger" />
-      <div class="hero-style-content">
-        <HeroStyle />
+    <HeroWrapper>
+      <div class="hero-title">
+        <div><h7>Premier titre</h7></div>
+        <h1>Culture</h1>
+        <Button content="Télécharger" />
       </div>
-    </div>
+      <div class="hero-navigation">
+        <div class="hero-style-content flex-inline gap-10">
+          <HeroStyle orientation="right" class="flex-basis-25" />
+          <div class="hero-style-transition flex-basis-75"></div>
+          <HeroStyle orientation="left" class="flex-basis-25" />
+        </div>
+      </div>
+    </HeroWrapper>
   </div>
 </template>
 
 <script>
 import HeroStyle from './component/HeroStyle'
 import Button from '../Button'
+import HeroWrapper from './component/HeroWrapper'
 export default {
-  components: { HeroStyle, Button }
+  components: { HeroStyle, Button, HeroWrapper }
 }
 </script>
 
@@ -64,11 +69,17 @@ export default {
         text-transform: uppercase;
       }
     }
+    button {
+      display: block;
+      margin: 50px auto;
+    }
   }
-
   .hero-navigation {
-    display: flex;
-    justify-content: center;
+    .hero-style-transition {
+      position: relative;
+      top: 5px;
+      border-top: 1px solid $black;
+    }
   }
 }
 </style>

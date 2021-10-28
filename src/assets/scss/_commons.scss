@@ -65,6 +65,7 @@ p {
 .span2 {
   font-size: $span-2-fs;
   letter-spacing: $span-2-ls;
+  font-family: $ak-font;
 }
 
 .span3 {
@@ -75,6 +76,7 @@ p {
 .span4 {
   font-size: $span-4-fs;
   letter-spacing: $span-4-ls;
+  font-family: $ak-mono-font;
 }
 
 #grained::before {
