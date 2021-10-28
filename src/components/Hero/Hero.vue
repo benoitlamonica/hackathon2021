@@ -9,7 +9,9 @@
       <div class="flex-basis-33">
         <img class="logo" src="@/assets/images/logo.svg" alt="Logo" />
       </div>
-      <div class="flex-basis-33">Mona</div>
+      <div class="hero-last flex-basis-33">
+        <img src="@/assets/images/logo_header.svg" alt="Logo Header" />
+      </div>
     </div>
     <Wrapper>
       <div class="hero-title">
@@ -25,6 +27,7 @@
         </div>
       </div>
     </Wrapper>
+    <img class="hero-arrow" src="@/assets/images/arrow.svg" alt="Arrow" />
   </div>
 </template>
 
@@ -39,8 +42,15 @@ export default {
 
 <style lang="scss" scoped>
 .hero {
+  position: relative;
   height: 100vh;
   width: 100vw;
+  .hero-arrow {
+    position: absolute;
+    top: 30vh;
+    right: 5vw;
+    transform: translate(-60%);
+  }
   h1 {
     color: $brown;
   }
@@ -51,6 +61,7 @@ export default {
     > div {
       display: flex;
       align-items: center;
+      padding: 0 5vw;
     }
     > .hero-acc {
       flex-direction: column;
@@ -58,6 +69,18 @@ export default {
       justify-content: center;
       text-align: left;
       line-height: 25px;
+      > span {
+        font-size: 20px;
+        line-height: 30px;
+        &:nth-child(2) {
+          font-size: 25px;
+        }
+      }
+    }
+
+    > .hero-last {
+      align-items: center;
+      justify-content: flex-end;
     }
     height: 25%;
     .logo {
