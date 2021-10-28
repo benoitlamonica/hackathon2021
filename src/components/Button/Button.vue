@@ -1,5 +1,7 @@
 <template>
-  <button>{{ content }}</button>
+  <button :style="inversed ? `background-color: #fbfbfb; color: #1d1d1d` : ''">
+    {{ content }}
+  </button>
 </template>
 
 <script>
@@ -8,6 +10,10 @@ export default {
     content: {
       type: String,
       default: 'Placeholder'
+    },
+    inversed: {
+      type: Boolean,
+      default: false
     }
   }
 }

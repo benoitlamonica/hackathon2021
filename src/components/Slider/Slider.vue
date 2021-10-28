@@ -29,15 +29,22 @@
         </div>
       </div>
     </div>
+    <Intersect @enter="handleEnterEvent" @leave="handleLeaveEvent">
+      <span class="breakpoint"></span>
+    </Intersect>
   </div>
 </template>
 
 <script>
 import data from './data'
 import { reactive, ref } from '@vue/reactivity'
-import { onMounted } from '@vue/runtime-core'
+import Intersect from 'vue-intersect'
 
 export default {
+  components: {
+    Intersect
+  },
+
   setup() {
     const mousePosition = reactive({
       x: 0,
@@ -45,32 +52,10 @@ export default {
       id: 0
     })
 
-    const slider = ref()
+    const slider = ref(null)
 
     const windowBlock = ref(null)
-    let hasEntered = false
-    let hasLeave = true
 
-    onMounted(() => {
-      window.addEventListener('scroll', () => {
-        console.log(window.scrollY)
-        if (
-          window.scrollY >= 1950 &&
-          window.scrollY <= 3140 &&
-          hasEntered === false
-        ) {
-          hasEntered = true
-          hasLeave = false
-          handleEnterEvent()
-          return
-        } else if (window.scrollY > 3140 && hasLeave === false) {
-          hasLeave = true
-          hasEntered = false
-          handleLeaveEvent()
-          return
-        }
-      })
-    })
     const handleEnterEvent = () => {
       slider.value.scrollLeft = 1
       console.log('Enter')
@@ -81,17 +66,15 @@ export default {
 
     const handleScroll = (e) => {
       console.log(slider.value.scrollLeft)
-      let ssl = slider.value.scrollLeft
 
       if (!e.deltaY) {
         return
       }
-      if (ssl >= 2420 || ssl === 0) {
+      if (slider.value.scrollLeft > 1800 || slider.value.scrollLeft === 0) {
         return
       }
 
       slider.value.scrollLeft += e.deltaY + e.deltaX
-      console.log(ssl)
       e.preventDefault()
     }
 
