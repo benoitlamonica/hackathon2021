@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .hero-style {
-  min-width: 300px;
+  min-width: 310px;
   h6 {
     text-transform: lowercase;
     line-height: 72px;

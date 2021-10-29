@@ -1,9 +1,18 @@
 <template>
-  <div>
-    <div class="footer-content flex-inline gap-20">
+  <div ref="footer">
+    <Intersect @enter="handleIntersect">
+      <span class="breakpoint"></span>
+    </Intersect>
+    <div
+      :style="`background-color: ${bgColor}`"
+      class="footer-content flex-inline"
+    >
       <div class="footer-img-content">
         <div class="img-left-1">
-          <div class="img-left-2"></div>
+          <img src="@/assets/images/footer/img-left-1.png" alt="Hey" />
+          <div ref="pLeft" class="img-left-2">
+            <img src="@/assets/images/footer/img-left-2.png" alt="Hey" />
+          </div>
         </div>
       </div>
       <div class="footer-info">
@@ -21,7 +30,10 @@
       </div>
       <div class="footer-img-content">
         <div class="img-right-1">
-          <div class="img-right-2"></div>
+          <img src="@/assets/images/footer/img-right-1.png" alt="Hey" />
+          <div ref="pRight" class="img-right-2">
+            <img src="@/assets/images/footer/img-right-2.png" alt="Hey" />
+          </div>
         </div>
       </div>
     </div>
@@ -30,20 +42,55 @@
 
 <script>
 import Button from '../Button'
-export default { components: { Button } }
+import Intersect from 'vue-intersect'
+import { ref } from '@vue/reactivity'
+export default {
+  components: { Button, Intersect },
+  setup() {
+    const bgColor = ref('#fbfbfb')
+    const pLeft = ref(null)
+    const pRight = ref(null)
+    const footer = ref(null)
+    const handleIntersect = () => {
+      console.log('coucou')
+      bgColor.value = '#1d1d1d'
+      window.addEventListener('scroll', () => {
+        let oSFooter = window.scrollY - footer.value.offsetTop
+        console.log(pLeft.value)
+        console.log(pRight.value)
+        pLeft.value.style.bottom = oSFooter / 8 + 'px'
+        pRight.value.style.bottom = oSFooter / 8 + 'px'
+      })
+    }
+
+    return {
+      handleIntersect,
+      bgColor,
+      pLeft,
+      pRight,
+      footer
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
 div {
-  background-color: $black;
   color: $white;
   .footer-content {
     padding: 280px 0 380px;
+    transition: 1s ease-in;
     .footer-img-content {
       flex-grow: 1;
       div {
         background-color: $white;
         border-radius: 14px;
+      }
+      img {
+        border-radius: 14px;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
       }
       .img-left-1 {
         transform: translateY(100%);

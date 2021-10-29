@@ -29,22 +29,15 @@
         </div>
       </div>
     </div>
-    <Intersect @enter="handleEnterEvent" @leave="handleLeaveEvent">
-      <span class="breakpoint"></span>
-    </Intersect>
   </div>
 </template>
 
 <script>
 import data from './data'
 import { reactive, ref } from '@vue/reactivity'
-import Intersect from 'vue-intersect'
+import { onMounted } from '@vue/runtime-core'
 
 export default {
-  components: {
-    Intersect
-  },
-
   setup() {
     const mousePosition = reactive({
       x: 0,
@@ -54,33 +47,41 @@ export default {
 
     const slider = ref(null)
 
-    const windowBlock = ref(null)
+    onMounted(() => {
+      window.addEventListener('scroll', handleScrollWindow)
+    })
 
     const handleEnterEvent = () => {
-      slider.value.scrollLeft = 1
       console.log('Enter')
-      console.log(windowBlock.value)
-
+      window.removeEventListener('scroll', handleScrollWindow)
       window.addEventListener('wheel', handleScroll, { passive: false })
     }
 
-    const handleScroll = (e) => {
-      console.log(slider.value.scrollLeft)
+    const handleScrollWindow = () => {
+      let offTop = slider.value.offsetTop - window.scrollY
+      if (offTop <= 0 && offTop >= -300) {
+        handleEnterEvent()
+      }
+    }
 
+    const handleScroll = (e) => {
+      let maxScroll = slider.value.scrollWidth - slider.value.clientWidth
       if (!e.deltaY) {
         return
       }
-      if (slider.value.scrollLeft > 1800 || slider.value.scrollLeft === 0) {
+      if (
+        slider.value.scrollLeft === maxScroll ||
+        slider.value.scrollLeft === 0
+      ) {
+        slider.value.scrollLeft =
+          slider.value.scrollLeft === 0 ? 1 : maxScroll - 1
+        window.removeEventListener('wheel', handleScroll)
+        window.addEventListener('scroll', handleScrollWindow)
         return
       }
 
       slider.value.scrollLeft += e.deltaY + e.deltaX
       e.preventDefault()
-    }
-
-    const handleLeaveEvent = () => {
-      console.log('Leave')
-      window.removeEventListener('wheel', handleScroll, { passive: false })
     }
 
     const handleMouseMove = (e, index) => {
@@ -92,7 +93,6 @@ export default {
     return {
       data,
       handleEnterEvent,
-      handleLeaveEvent,
       handleMouseMove,
       mousePosition,
       slider

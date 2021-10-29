@@ -2,6 +2,7 @@ body {
   font-family: $main-font;
   background-color: $yellow;
   color: $black;
+  scroll-behavior: smooth;
 }
 
 h1 {

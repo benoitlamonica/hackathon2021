@@ -16,7 +16,6 @@ export default {
     const { grained } = useFilters()
 
     onMounted(() => {
-      console.log('Style', grainedElem.value.style)
       grained(grainedElem.value, optionGrain)
     })
 

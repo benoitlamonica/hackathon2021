@@ -6,6 +6,7 @@
     <FourthSection />
     <FiveSection />
     <Footer />
+    <FooterCGU />
   </GrainedBG>
 </template>
 
@@ -17,6 +18,7 @@ import Slider from './components/Slider'
 import FourthSection from './components/FourthSection/FourthSection.vue'
 import FiveSection from './components/FiveSection/FiveSection.vue'
 import Footer from './components/Footer'
+import FooterCGU from './components/FooterCGU/FooterCGU.vue'
 
 export default {
   components: {
@@ -26,7 +28,8 @@ export default {
     Slider,
     FourthSection,
     FiveSection,
-    Footer
+    Footer,
+    FooterCGU
   }
 }
 </script>

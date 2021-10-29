@@ -2,9 +2,9 @@
   <div class="hero">
     <div class="hero-top flex-inline gap-50">
       <div class="hero-acc flex-basis-33">
-        <span class="hero-dbtypo">Ceci est une ligne de</span>
-        <span>texte avec deux typos</span>
-        <span class="hero-dbtypo">différentes lorem ipsum</span>
+        <span class="hero-dbtypo">Rencontre</span>
+        <span>découvre</span>
+        <span class="hero-dbtypo">partage</span>
       </div>
       <div class="flex-basis-33">
         <img class="logo" src="@/assets/images/logo.svg" alt="Logo" />
@@ -15,15 +15,27 @@
     </div>
     <Wrapper>
       <div class="hero-title">
-        <div><h7>Premier titre</h7></div>
-        <h1>Culture</h1>
+        <div><h7>Découvrez</h7></div>
+        <h1>l’Art visuel</h1>
         <Button content="Télécharger" />
       </div>
       <div class="hero-navigation">
         <div class="hero-style-content flex-inline gap-10">
-          <HeroStyle orientation="right" class="flex-basis-25" />
+          <HeroStyle
+            orientation="right"
+            class="flex-basis-25"
+            head="Je suis un"
+            title="Professionnel"
+            content="Vous souhaitez donner plus de visibilité à vos expositions ? Enregistrez-vous dès maintenant !"
+          />
           <div class="hero-style-transition flex-basis-75"></div>
-          <HeroStyle orientation="left" class="flex-basis-25" />
+          <HeroStyle
+            orientation="left"
+            class="flex-basis-25"
+            head="Je suis un"
+            title="Amateur d’art"
+            content="Parcourez l’agenda culturel de votre ville. Créez ou rejoignez un groupe et retrouvez vous sur un évènement culturel !"
+          />
         </div>
       </div>
     </Wrapper>

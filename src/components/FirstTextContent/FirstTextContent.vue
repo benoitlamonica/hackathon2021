@@ -1,14 +1,14 @@
 <template>
   <Wrapper>
     <div id="container-first-text">
-      <span class="text-part .align-items-center"> Lorem ipsum </span>
+      <span class="text-part .align-items-center"> Mona Lisa, </span>
       <div ref="roundImg1" class="container-round-img">
         <RoundImg :img-link="img1" />
       </div>
       <Intersect @enter="upImg(0)">
         <span class="text-part .align-items-center">
-          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          symbole de l’art universel, est fatiguée dans ce monde où tout est
+          trop. Mona, c’est la première
         </span>
       </Intersect>
       <div ref="roundImg2" class="container-round-img">
@@ -16,8 +16,8 @@
       </div>
       <Intersect @enter="upImg(1)">
         <span class="text-part .align-items-center">
-          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          application de rencontre qui assemble et rassemble les amoureux d’art
+          visuel. Faites partie de la rencontre
         </span>
       </Intersect>
       <div ref="roundImg3" class="container-round-img">
@@ -25,8 +25,8 @@
       </div>
       <Intersect @enter="upImg(2)">
         <span class="text-part .align-items-center">
-          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          entre deux groupes et visitez un lieu culturel autour d’un événement
+          singulier. Seul ou avec vos proches rencontrez, admirez, partagez.
         </span>
       </Intersect>
     </div>
