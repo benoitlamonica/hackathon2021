@@ -3,10 +3,7 @@
     <Intersect @enter="handleIntersect">
       <span class="breakpoint"></span>
     </Intersect>
-    <div
-      :style="`background-color: ${bgColor}`"
-      class="footer-content flex-inline"
-    >
+    <div class="footer-content flex-inline">
       <div class="footer-img-content">
         <div class="img-left-1">
           <img src="@/assets/images/footer/img-left-1.png" alt="Hey" />
@@ -26,7 +23,7 @@
           Mona est disponible gratuitement en téléchargement sur l’AppStore et
           PlayStore.
         </p>
-        <Button inversed />
+        <Button content="Télécharger" inversed />
       </div>
       <div class="footer-img-content">
         <div class="img-right-1">
@@ -44,20 +41,18 @@
 import Button from '../Button'
 import Intersect from 'vue-intersect'
 import { ref } from '@vue/reactivity'
+import { useStore } from 'vuex'
 export default {
   components: { Button, Intersect },
   setup() {
-    const bgColor = ref('#fbfbfb')
+    const store = useStore()
     const pLeft = ref(null)
     const pRight = ref(null)
     const footer = ref(null)
     const handleIntersect = () => {
-      console.log('coucou')
-      bgColor.value = '#1d1d1d'
+      store.commit('changeBgColor', '#1d1d1d')
       window.addEventListener('scroll', () => {
         let oSFooter = window.scrollY - footer.value.offsetTop
-        console.log(pLeft.value)
-        console.log(pRight.value)
         pLeft.value.style.bottom = oSFooter / 8 + 'px'
         pRight.value.style.bottom = oSFooter / 8 + 'px'
       })
@@ -65,7 +60,6 @@ export default {
 
     return {
       handleIntersect,
-      bgColor,
       pLeft,
       pRight,
       footer
@@ -76,7 +70,6 @@ export default {
 
 <style scoped lang="scss">
 div {
-  color: $white;
   .footer-content {
     padding: 280px 0 380px;
     transition: 1s ease-in;
@@ -122,6 +115,7 @@ div {
       width: 500px;
       padding: 0 100px;
       text-align: center;
+      color: $white;
       span {
         text-transform: uppercase;
       }

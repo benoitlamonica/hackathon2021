@@ -5,26 +5,26 @@ import img4 from '../../../assets/images/slides/slide-4.png'
 
 export default {
     slide1: {
-        punchline: 'Punchline',
-        title: 'Mona votre app',
+        punchline: 'Mona, retrouve ta lisa',
+        title: '',
         name: 'Musée des beaux arts',
         src: img1
     },
     slide2: {
-        punchline: 'Punchline',
-        title: 'Mona votre app',
+        punchline: 'Mona, retrouve ta lisa',
+        title: '',
         name: 'MADD Bordeaux',
         src: img2
     },
     slide3: {
-        punchline: 'Punchline',
-        title: 'Mona votre app',
+        punchline: 'Mona, retrouve ta lisa',
+        title: '',
         name: 'CAPC Bordeaux',
         src: img3
     },
     slide4: {
-        punchline: 'Punchline',
-        title: 'Mona votre app',
+        punchline: 'Mona, retrouve ta lisa',
+        title: '',
         name: 'Musée Maritime',
         src: img4
     },

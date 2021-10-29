@@ -3,13 +3,13 @@ import { createStore } from "vuex"
 const store = createStore({
     state() {
         return {
-            name: 'Type in input to change store'
+            color: '#f4f2ec'
         }
     },
 
     mutations: {
-        changeName(state, name) {
-            state.name = name
+        changeBgColor(state, color) {
+            state.color = color
         }
     }
 })

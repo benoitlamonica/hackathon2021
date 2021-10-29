@@ -24,7 +24,7 @@
           <HeroStyle
             orientation="right"
             class="flex-basis-25"
-            head="Je suis un"
+            head="JE SUIS UN"
             title="Professionnel"
             content="Vous souhaitez donner plus de visibilité à vos expositions ? Enregistrez-vous dès maintenant !"
           />
@@ -32,7 +32,7 @@
           <HeroStyle
             orientation="left"
             class="flex-basis-25"
-            head="Je suis un"
+            head="JE SUIS UN"
             title="Amateur d’art"
             content="Parcourez l’agenda culturel de votre ville. Créez ou rejoignez un groupe et retrouvez vous sur un évènement culturel !"
           />
