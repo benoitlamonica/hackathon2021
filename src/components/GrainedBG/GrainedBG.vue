@@ -36,5 +36,6 @@ export default {
 <style>
 #grained {
   transition: 1s ease-in;
+  z-index: 0;
 }
 </style>
